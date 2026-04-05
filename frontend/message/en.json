@@ -1,0 +1,24 @@
+{
+  "auth": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "signingUp": "Signing up...",
+    "email": "Email",
+    "emailPlaceholder": "example@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "At least 8 characters",
+    "name": "Name",
+    "namePlaceholder": "John Doe",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signupFailed": "Sign up failed",
+    "loginFailed": "Login failed",
+    "loggingIn": "Logging in...",
+    "loginPasswordPlaceholder": "Enter your password",
+    "networkError": "A network error occurred"
+  },
+  "dashboard": {
+    "logout": "Logout",
+    "myAccount": "My Account"
+  }
+}

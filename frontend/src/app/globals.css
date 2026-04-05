@@ -10,6 +10,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-pink-50: #FBEAF0;
+  --color-pink-75: #FFE4E1;
+  --color-pink-100: #FFD1DC;
+  --color-pink-200: #F4C0D1;
+  --color-pink-300: #ED93B1;
+  --color-pink-500: #D4537E;
+  --color-pink-700: #993556;
+  --color-pink-900: #72243E;
+
+  --color-peach-50: #FFF3E8;
+  --color-peach-100: #FFE8D6;
+  --color-peach-200: #EDD5C0;
+  --color-peach-500: #C47A3A;
+  --color-peach-700: #7A4020;
+
+  --color-butter-50: #FFF8EE;
+  --color-butter-500: #D4A017;
+  --color-butter-700: #8A6010;
+
+  --color-mocha-50: #F2EDE8;
+  --color-mocha-200: #EDD5C0;
+  --color-mocha-400: #B07060;
+  --color-mocha-500: #8C7060;
+  --color-mocha-700: #5C4030;
+  --color-mocha-900: #3D2010;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,7 +46,6 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }

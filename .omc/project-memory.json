@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774877571229,
+  "lastScanned": 1775372059291,
   "projectRoot": "/Users/jeongsu/mamma",
   "techStack": {
     "languages": [
@@ -51,7 +51,7 @@
       "path": "backend",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1774877571022,
+      "lastAccessed": 1775372059270,
       "keyFiles": [
         "package.json",
         "prisma.config.ts",
@@ -61,8 +61,8 @@
     "frontend": {
       "path": "frontend",
       "purpose": null,
-      "fileCount": 10,
-      "lastAccessed": 1774877571023,
+      "fileCount": 11,
+      "lastAccessed": 1775372059270,
       "keyFiles": [
         "AGENTS.md",
         "CLAUDE.md",
@@ -75,14 +75,14 @@
       "path": "backend/node_modules",
       "purpose": "Dependencies",
       "fileCount": 0,
-      "lastAccessed": 1774877571109,
+      "lastAccessed": 1775372059282,
       "keyFiles": []
     },
     "backend/src": {
       "path": "backend/src",
       "purpose": "Source code",
       "fileCount": 1,
-      "lastAccessed": 1774877571110,
+      "lastAccessed": 1775372059283,
       "keyFiles": [
         "index.ts"
       ]
@@ -90,15 +90,147 @@
   },
   "hotPaths": [
     {
-      "path": ".env",
-      "accessCount": 1,
-      "lastAccessed": 1774877641728,
+      "path": "frontend/src/app/[locale]/dashboard/page.tsx",
+      "accessCount": 6,
+      "lastAccessed": 1775372888627,
       "type": "file"
     },
     {
-      "path": "backend/.env",
+      "path": "frontend/src/lib/api.ts",
+      "accessCount": 6,
+      "lastAccessed": 1775372914928,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 5,
+      "lastAccessed": 1775372436409,
+      "type": "directory"
+    },
+    {
+      "path": "frontend/src",
+      "accessCount": 5,
+      "lastAccessed": 1775372443629,
+      "type": "directory"
+    },
+    {
+      "path": "frontend/next.config.ts",
+      "accessCount": 5,
+      "lastAccessed": 1775372941872,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/proxy.ts",
+      "accessCount": 4,
+      "lastAccessed": 1775372568708,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/contexts/AuthContext.tsx",
+      "accessCount": 3,
+      "lastAccessed": 1775372490804,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/i18n/routing.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775372491827,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/i18n/navigation.ts",
+      "accessCount": 3,
+      "lastAccessed": 1775372495215,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/app/layout.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775372418347,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/app/[locale]/layout.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775372418617,
+      "type": "file"
+    },
+    {
+      "path": "frontend/package.json",
+      "accessCount": 2,
+      "lastAccessed": 1775372418779,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/app/[locale]/login/page.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1775372424286,
+      "type": "file"
+    },
+    {
+      "path": "backend/src/routes/auth.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775372431909,
+      "type": "file"
+    },
+    {
+      "path": "backend/src/index.ts",
+      "accessCount": 2,
+      "lastAccessed": 1775372437372,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
       "accessCount": 1,
-      "lastAccessed": 1774877641973,
+      "lastAccessed": 1775372400373,
+      "type": "file"
+    },
+    {
+      "path": "backend/package.json",
+      "accessCount": 1,
+      "lastAccessed": 1775372400675,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/auth/AuthButton.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372414044,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/auth/AuthInput.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372414277,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/auth/SignupForm.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372414660,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/app/[locale]/signup/page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372417376,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/app/[locale]/page.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372421799,
+      "type": "file"
+    },
+    {
+      "path": "frontend/src/components/LocaleSwitcher.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1775372439295,
+      "type": "file"
+    },
+    {
+      "path": "frontend/middleware.ts",
+      "accessCount": 1,
+      "lastAccessed": 1775372929926,
       "type": "file"
     }
   ],

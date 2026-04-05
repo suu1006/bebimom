@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter, Link } from "@/i18n/navigation";
 import { api } from "@/lib/api";
 import { useAuth } from "@/contexts/AuthContext";
 import { AuthInput } from "./AuthInput";
 import { AuthButton } from "./AuthButton";
+import { useTranslations } from "next-intl";
 
 export function SignupForm() {
+  const t = useTranslations("auth");
   const router = useRouter();
   const { setAuth } = useAuth();
 
@@ -33,14 +34,14 @@ export function SignupForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.message ?? "회원가입에 실패했습니다");
+        setError(data.message ?? t("signupFailed"));
         return;
       }
 
       setAuth(data.user, data.accessToken);
       router.push("/dashboard");
     } catch {
-      setError("네트워크 오류가 발생했습니다");
+      setError(t("networkError"));
     } finally {
       setIsLoading(false);
     }
@@ -49,44 +50,44 @@ export function SignupForm() {
   return (
     <div className="mb-8 text-center">
       <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-        회원가입
+        {t("signup")}
       </h1>
       <p className="mt-2 text-sm text-zinc-500">
-        이미 계정이 있으신가요?{" "}
+        {t("hasAccount")}{" "}
         <Link
           href="/login"
           className="text-zinc-900 dark:text-zinc-50 font-medium underline underline-offset-4"
         >
-          로그인
+          {t("login")}
         </Link>
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4 mt-8">
         <AuthInput
           id="name"
-          label="이름"
+          label={t("name")}
           value={name}
           onChange={setName}
-          placeholder="홍길동"
+          placeholder={t("namePlaceholder")}
           autoComplete="name"
         />
         <AuthInput
           id="email"
-          label="이메일"
+          label={t("email")}
           type="email"
           value={email}
           onChange={setEmail}
-          placeholder="example@email.com"
+          placeholder={t("emailPlaceholder")}
           autoComplete="email"
           required
         />
         <AuthInput
           id="password"
-          label="비밀번호"
+          label={t("password")}
           type="password"
           value={password}
           onChange={setPassword}
-          placeholder="8자 이상 입력하세요"
+          placeholder={t("passwordPlaceholder")}
           autoComplete="new-password"
           required
         />
@@ -97,8 +98,8 @@ export function SignupForm() {
 
         <AuthButton
           isLoading={isLoading}
-          label="회원가입"
-          loadingLabel="가입 중..."
+          label={t("signup")}
+          loadingLabel={t("signingUp")}
         />
       </form>
     </div>

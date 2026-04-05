@@ -1,0 +1,24 @@
+{
+  "auth": {
+    "login": "로그인",
+    "signup": "회원가입",
+    "signingUp": "가입 중...",
+    "email": "이메일",
+    "emailPlaceholder": "example@email.com",
+    "password": "비밀번호",
+    "passwordPlaceholder": "8자 이상 입력하세요",
+    "name": "이름",
+    "namePlaceholder": "홍길동",
+    "noAccount": "계정이 없으신가요?",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "signupFailed": "회원가입에 실패했습니다",
+    "loginFailed": "로그인에 실패했습니다",
+    "loggingIn": "로그인 중...",
+    "loginPasswordPlaceholder": "비밀번호를 입력하세요",
+    "networkError": "네트워크 오류가 발생했습니다"
+  },
+  "dashboard": {
+    "logout": "로그아웃",
+    "myAccount": "내 계정"
+  }
+}
