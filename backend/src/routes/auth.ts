@@ -41,6 +41,7 @@ router.post("/register", validate(registerSchema), async (req, res, next) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true, // 클라이언트에서만 쿠키 접근 가능
       sameSite: "lax", // 동일 사이트 내에서만 쿠키 전송
+      secure: process.env.NODE_ENV === "production", // 배포 시, HTTPS 사용하도록 설정
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7일
     });
 

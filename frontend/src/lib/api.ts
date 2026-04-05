@@ -1,5 +1,3 @@
-const BASE_URL = "http://localhost:4000";
-
 interface FetchOptions extends RequestInit {
   skipAuth?: boolean;
 }
@@ -13,10 +11,13 @@ export function setAccessToken(token: string | null) {
 
 async function refreshAccessToken(): Promise<string | null> {
   try {
-    const res = await fetch(`${BASE_URL}/api/auth/refresh`, {
-      method: "POST",
-      credentials: "include", // httpOnly 쿠키 자동 전송
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/refresh`,
+      {
+        method: "POST",
+        credentials: "include", // httpOnly 쿠키 자동 전송
+      },
+    );
     if (!res.ok) return null;
     const data = await res.json();
     currentAccessToken = data.accessToken;
@@ -41,7 +42,7 @@ export async function api(
     headers["Authorization"] = `Bearer ${currentAccessToken}`;
   }
 
-  const res = await fetch(`${BASE_URL}${path}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`, {
     ...fetchOptions,
     headers,
     credentials: "include",
@@ -52,7 +53,7 @@ export async function api(
     const newToken = await refreshAccessToken();
     if (!newToken) return res; // Refresh Token도 만료 → 로그인 페이지로 이동 필요
 
-    return fetch(`${BASE_URL}${path}`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API_URL}${path}`, {
       ...fetchOptions,
       headers: { ...headers, Authorization: `Bearer ${newToken}` },
       credentials: "include", // 쿠키 자동 전송

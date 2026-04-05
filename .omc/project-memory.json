@@ -1,0 +1,106 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1774877571229,
+  "projectRoot": "/Users/jeongsu/mamma",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "concurrently \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+      "build": "npm run build -w frontend && npm run build -w backend"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [
+      "frontend",
+      "backend"
+    ],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "backend": {
+      "path": "backend",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1774877571022,
+      "keyFiles": [
+        "package.json",
+        "prisma.config.ts",
+        "tsconfig.json"
+      ]
+    },
+    "frontend": {
+      "path": "frontend",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1774877571023,
+      "keyFiles": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "eslint.config.mjs",
+        "next-env.d.ts"
+      ]
+    },
+    "backend/node_modules": {
+      "path": "backend/node_modules",
+      "purpose": "Dependencies",
+      "fileCount": 0,
+      "lastAccessed": 1774877571109,
+      "keyFiles": []
+    },
+    "backend/src": {
+      "path": "backend/src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1774877571110,
+      "keyFiles": [
+        "index.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": ".env",
+      "accessCount": 1,
+      "lastAccessed": 1774877641728,
+      "type": "file"
+    },
+    {
+      "path": "backend/.env",
+      "accessCount": 1,
+      "lastAccessed": 1774877641973,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
