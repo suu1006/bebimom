@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev -w frontend\" \"npm run dev -w backend\"",
-    "build": "npm run build -w frontend && npm run build -w backend"
+    "dev": "concurrently \"npm run dev -w frontend-web\" \"npm run dev -w backend\"",
+    "dev:web": "npm run dev -w frontend-web",
+    "dev:mobile": "cd frontend/mobile && npx expo start",
+    "dev:backend": "npm run dev -w backend",
+    "build": "npm run build -w frontend-web && npm run build -w backend"
   },
   "repository": {
     "type": "git",
@@ -16,12 +19,13 @@
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/suu1006/mamma/issues"
+    "url": "https://github.com/suu1006/mamma#readme"
   },
   "homepage": "https://github.com/suu1006/mamma#readme",
   "private": true,
   "workspaces": [
-    "frontend",
+    "frontend/web",
+    "frontend/shared",
     "backend"
   ],
   "devDependencies": {
