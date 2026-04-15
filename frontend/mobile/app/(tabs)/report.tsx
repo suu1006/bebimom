@@ -1,3 +1,4 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useState } from "react";
 import {
   Image,
@@ -7,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { APP_COLORS } from "@shared/src/colors";
 import { MetricCard } from "@/features/report/components/MetricCard";
 import {
   CARD_SHADOW,
@@ -82,7 +84,7 @@ export default function ReportScreen() {
               horizontal
               nestedScrollEnabled
               showsHorizontalScrollIndicator={false}
-              className="mt-6 -mx-0 bg-"
+              className="mt-6 -mx-0"
               contentContainerStyle={{ paddingRight: 4, paddingVertical: 2 }}
             >
               {METRICS.map((m) => (
@@ -93,9 +95,12 @@ export default function ReportScreen() {
             <View className="mt-6 rounded-3xl border border-border/30 bg-white px-5 py-5">
               <View className="flex-row items-center gap-3">
                 <View className="h-12 w-12 items-center justify-center rounded-2xl bg-primary/20">
-                  <Text className="text-2xl" accessibilityElementsHidden>
-                    ✨
-                  </Text>
+                  <Ionicons
+                    name="color-wand-outline"
+                    size={26}
+                    color={APP_COLORS.reportGreenDark}
+                    accessibilityElementsHidden
+                  />
                 </View>
                 <Text className="text-2xl font-extrabold tracking-tight text-foreground">
                   맞춤 AI 리포트
@@ -105,9 +110,12 @@ export default function ReportScreen() {
               <View className="mt-6 border-t border-border/25 pt-5">
                 <View className="flex-row items-start gap-4">
                   <View className="mt-0.5 h-10 w-10 items-center justify-center rounded-full bg-report-green-soft">
-                    <Text className="text-xl" accessibilityElementsHidden>
-                      ↗️
-                    </Text>
+                    <Ionicons
+                      name="trending-up"
+                      size={22}
+                      color={APP_COLORS.reportGreenDark}
+                      accessibilityElementsHidden
+                    />
                   </View>
                   <View className="flex-1">
                     <Text className="text-[16px] font-bold tracking-tight text-foreground">
@@ -124,9 +132,12 @@ export default function ReportScreen() {
               <View className="mt-5 border-t border-border/25 pt-5">
                 <View className="flex-row items-start gap-4">
                   <View className="mt-0.5 h-10 w-10 items-center justify-center rounded-full bg-[#EAF1FF]">
-                    <Text className="text-xl" accessibilityElementsHidden>
-                      ✅
-                    </Text>
+                    <Ionicons
+                      name="checkmark-circle-outline"
+                      size={22}
+                      color="#3D6AD6"
+                      accessibilityElementsHidden
+                    />
                   </View>
                   <View className="flex-1">
                     <Text className="text-[16px] font-bold tracking-tight text-foreground">
@@ -143,9 +154,12 @@ export default function ReportScreen() {
               <View className="mt-5 border-t border-border/25 pt-5">
                 <View className="flex-row items-start gap-4">
                   <View className="mt-0.5 h-10 w-10 items-center justify-center rounded-full bg-[#FFF4E6]">
-                    <Text className="text-xl" accessibilityElementsHidden>
-                      ⚠️
-                    </Text>
+                    <Ionicons
+                      name="alert-circle-outline"
+                      size={22}
+                      color="#E65100"
+                      accessibilityElementsHidden
+                    />
                   </View>
                   <View className="flex-1">
                     <Text className="text-[16px] font-bold tracking-tight text-foreground">
@@ -168,9 +182,12 @@ export default function ReportScreen() {
             >
               <View className="flex-row items-center justify-between">
                 <View className="flex-row items-center gap-2">
-                  {/* <Text className="text-xl" accessibilityElementsHidden>
-                    🛡️
-                  </Text> */}
+                  <Ionicons
+                    name="shield-checkmark-outline"
+                    size={24}
+                    color={APP_COLORS.reportGreenDark}
+                    accessibilityElementsHidden
+                  />
                   <Text className="text-xl font-bold text-foreground">
                     예방접종 현황
                   </Text>
@@ -191,9 +208,12 @@ export default function ReportScreen() {
                     </Text>
                   </View>
                   <View className="h-16 w-16 items-center justify-center rounded-full bg-[#CFF5E4]">
-                    <Text className="text-2xl" accessibilityElementsHidden>
-                      🛡️
-                    </Text>
+                    <Ionicons
+                      name="shield-checkmark-outline"
+                      size={30}
+                      color="#0E8D64"
+                      accessibilityElementsHidden
+                    />
                   </View>
                 </View>
               </View>
@@ -209,9 +229,12 @@ export default function ReportScreen() {
                     </Text>
                   </View>
                   <View className="h-16 w-16 items-center justify-center rounded-full bg-[#FCE8CC]">
-                    <Text className="text-2xl" accessibilityElementsHidden>
-                      📅
-                    </Text>
+                    <Ionicons
+                      name="calendar-outline"
+                      size={30}
+                      color="#FF6A00"
+                      accessibilityElementsHidden
+                    />
                   </View>
                 </View>
               </View>
@@ -222,9 +245,12 @@ export default function ReportScreen() {
               style={CARD_SHADOW}
             >
               <View className="flex-row items-center gap-2">
-                <Text className="text-xl" accessibilityElementsHidden>
-                  🩺
-                </Text>
+                <Ionicons
+                  name="medical-outline"
+                  size={24}
+                  color="#0E8D64"
+                  accessibilityElementsHidden
+                />
                 <Text className="text-xl font-bold text-foreground">
                   영유아 건강검진
                 </Text>

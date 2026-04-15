@@ -13,8 +13,6 @@ export type RecordTimelineItem = {
   label: string;
   /** 예: 분유 120ml */
   detail: string;
-  /** 목록 한 줄 표현용 (일부 기기에서 이모지가 깨지면 제거 가능) */
-  emoji?: string;
   ionIcon: TimelineIonIcon;
   iconBgClass: string;
   iconColor?: string;
@@ -31,7 +29,6 @@ export const MOCK_HOME_TIMELINE: RecordTimelineItem[] = [
     timeLabel: "오전 9:00",
     label: "수유",
     detail: "분유 120ml",
-    emoji: "🍼",
     ionIcon: "nutrition-outline",
     iconBgClass: "bg-[#FFECEF]",
   },
@@ -40,7 +37,6 @@ export const MOCK_HOME_TIMELINE: RecordTimelineItem[] = [
     timeLabel: "오전 7:30",
     label: "수면",
     detail: "2시간 30분",
-    emoji: "🌙",
     ionIcon: "moon-outline",
     iconBgClass: "bg-[#EEF1FF]",
   },
@@ -49,8 +45,7 @@ export const MOCK_HOME_TIMELINE: RecordTimelineItem[] = [
     timeLabel: "오전 6:00",
     label: "기저귀",
     detail: "소변",
-    emoji: "🩹",
-    ionIcon: "bandage-outline",
+    ionIcon: "water-outline",
     iconBgClass: "bg-[#E8F5FF]",
   },
 ];
@@ -78,12 +73,16 @@ export function RecordTimeline({ items }: Props) {
                 <View
                   className={`h-9 w-9 items-center justify-center rounded-full ${item.iconBgClass}`}
                 >
-                  <Ionicons name={item.ionIcon} size={18} color={iconColor} />
+                  <Ionicons
+                    name={item.ionIcon}
+                    size={18}
+                    color={iconColor}
+                    accessibilityElementsHidden
+                  />
                 </View>
               </View>
               <View className="min-w-0 flex-1 pt-0.5">
                 <Text className="text-[16px] font-semibold text-foreground">
-                  {item.emoji ? `${item.emoji} ` : ""}
                   {item.label}
                 </Text>
                 <Text className="mt-0.5 text-[14px] leading-5 text-subtle">{item.detail}</Text>

@@ -1,3 +1,5 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
+import type { ComponentProps } from "react";
 import { Alert, Image, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
@@ -10,22 +12,24 @@ const SETTINGS_BORDER_SOFT = "rgba(229, 229, 234, 0.65)";
 
 /** 와이어프레임용 — 추후 아이/성장 API와 연결 */
 const PLACEHOLDER_PROFILE = {
-  name: "김민준",
-  birthLabel: "2024-05-15 출생 (남아)",
+  name: "짱아",
+  birthLabel: "2024-05-15 출생 (여아)",
   weight: "8.4kg",
   height: "69.2cm",
 };
 
+type IoniconName = ComponentProps<typeof Ionicons>["name"];
+
 function SettingsRow({
   iconBgClass,
-  icon,
+  iconName,
   title,
   subtitle,
   onPress,
   isLast,
 }: {
   iconBgClass: string;
-  icon: string;
+  iconName: IoniconName;
   title: string;
   subtitle?: string;
   onPress?: () => void;
@@ -45,7 +49,7 @@ function SettingsRow({
       <View
         className={`h-10 w-10 items-center justify-center rounded-xl ${iconBgClass}`}
       >
-        <Text className="text-lg">{icon}</Text>
+        <Ionicons name={iconName} size={22} color="#FFFFFF" accessibilityElementsHidden />
       </View>
       <View className="min-w-0 flex-1">
         <Text className="text-[15px] font-bold text-foreground">{title}</Text>
@@ -145,27 +149,27 @@ export default function SettingsScreen() {
         >
           <SettingsRow
             iconBgClass="bg-[#7C6CF5]"
-            icon="💳"
+            iconName="card-outline"
             title="프리미엄 구독 관리"
             subtitle="월 12,900원 멤버십 이용 중"
             onPress={() => {}}
           />
           <SettingsRow
             iconBgClass="bg-primary"
-            icon="🔔"
+            iconName="notifications-outline"
             title="알림 설정"
             subtitle="예방 접종 및 기록 리마인더"
             onPress={() => {}}
           />
           <SettingsRow
             iconBgClass="bg-[#5CB88F]"
-            icon="🛡"
+            iconName="shield-checkmark-outline"
             title="데이터 보안 및 개인정보"
             onPress={() => {}}
           />
           <SettingsRow
             iconBgClass="bg-[#C8C4CC]"
-            icon="🚪"
+            iconName="log-out-outline"
             title="로그아웃"
             onPress={onLogout}
             isLast
