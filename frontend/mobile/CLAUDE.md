@@ -1,5 +1,16 @@
 # 모바일(Expo) 가이드
 
+## 프로젝트 구조
+
+- `app/` — Expo Router 라우트만 두고, 화면 진입·레이아웃만 담당합니다.
+- `src/components/` — 앱 전역 공용 UI(버튼, 입력 등).
+- `src/features/` — 기능 단위(auth, home, report 등) 화면 조각·도메인 UI.
+- `src/hooks/` — 공용 훅.
+- `src/lib/` — API 클라이언트, 토큰 저장 등 설정·유틸.
+- `src/store/` — Zustand 스토어.
+
+앱 코드 import는 `@/` alias로 `src/` 기준 경로를 사용합니다 (`@/components/...`, `@/features/...`).
+
 ## 라우팅
 - Expo Router route group(`/(auth)`, `/(tabs)`) 표기를 그대로 사용합니다.
 - 반복 이동 경로는 공용 라우트 상수를 우선 사용합니다.

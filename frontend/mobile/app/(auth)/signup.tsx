@@ -14,10 +14,15 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, router } from "expo-router";
 import { useMutation } from "@tanstack/react-query";
-import { registerApi } from "../../lib/api";
-import { useAuthStore } from "../../store/authStore";
+import { registerApi } from "@/lib/api";
+import { useAuthStore } from "@/store/authStore";
 import { BOTTOM_PATH } from "@shared/constant/bottomPath";
+import {
+  isValidSignupPassword,
+  SIGNUP_PASSWORD_RULE_MESSAGE,
+} from "@shared/src/password";
 import logoImage from "@shared/assets/image/logo.png";
+import { EmailDomainField } from "@/components/EmailDomainField";
 
 export default function SignupScreen() {
   const setAuth = useAuthStore((s) => s.setAuth);
@@ -64,6 +69,10 @@ export default function SignupScreen() {
       Alert.alert("입력 오류", "모든 항목을 입력해주세요");
       return;
     }
+    if (!isValidSignupPassword(password)) {
+      Alert.alert("비밀번호 규칙", SIGNUP_PASSWORD_RULE_MESSAGE);
+      return;
+    }
     if (password !== passwordConfirm) {
       Alert.alert("입력 오류", "비밀번호가 일치하지 않습니다");
       return;
@@ -103,8 +112,8 @@ export default function SignupScreen() {
             className="w-full h-[120px]"
             resizeMode="contain"
           />
-          <View className="items-center mb-8">
-            <Text className="text-[32px] font-extrabold text-foreground tracking-tight">
+          <View className="items-center mb-8 mt-5">
+            <Text className="text-[27px] font-extrabold text-foreground tracking-tight">
               회원가입
             </Text>
             <Text className="text-[13px] text-subtle mt-1.5 tracking-widest">
@@ -132,53 +141,77 @@ export default function SignupScreen() {
               <Text className="text-[13px] font-semibold text-foreground">
                 이메일
               </Text>
-              <TextInput
-                className="bg-input-bg border-[1.5px] border-border rounded-xl px-4 py-[14px] text-[15px] text-foreground"
-                placeholder="example@email.com"
-                placeholderTextColor="#BBA9B0"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-              />
+              <EmailDomainField onChangeEmail={setEmail} />
             </View>
 
             <View className="gap-1.5">
-              <Text className="text-[13px] font-semibold text-foreground">
-                비밀번호
-              </Text>
+              <View className="flex-row flex-wrap items-center gap-x-2 gap-y-0.5">
+                <Text className="text-[13px] font-semibold text-foreground">
+                  비밀번호
+                </Text>
+                {password.length > 0 && isValidSignupPassword(password) ? (
+                  <View className="flex-row items-center gap-1.5">
+                    <View className="w-[15px] h-[15px] rounded-full bg-[#22c55e] items-center justify-center">
+                      <Text className="text-[8px] font-bold text-white leading-none">
+                        ✓
+                      </Text>
+                    </View>
+                    <Text className="text-[12px] font-semibold text-[#16a34a]">
+                      가능
+                    </Text>
+                  </View>
+                ) : null}
+              </View>
               <TextInput
-                className="bg-input-bg border-[1.5px] border-border rounded-xl px-4 py-[14px] text-[15px] text-foreground"
-                placeholder="비밀번호를 입력하세요"
+                className={`bg-input-bg border-[1.5px] rounded-xl px-4 py-[14px] text-[15px] text-foreground ${password.length > 0 && !isValidSignupPassword(password)
+                  ? "border-red-300"
+                  : "border-border"
+                  }`}
                 placeholderTextColor="#BBA9B0"
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
               />
+              {password.length > 0 && !isValidSignupPassword(password) ? (
+                <Text className="text-[12px] text-red-400 ml-1">
+                  특수문자, 8자 이상이어야 합니다
+                </Text>
+              ) : null}
             </View>
 
             <View className="gap-1.5">
-              <Text className="text-[13px] font-semibold text-foreground">
-                비밀번호 확인
-              </Text>
+              <View className="flex-row flex-wrap items-center gap-x-2 gap-y-0.5">
+                <Text className="text-[13px] font-semibold text-foreground">
+                  비밀번호 확인
+                </Text>
+                {passwordConfirm.length > 0 && password === passwordConfirm ? (
+                  <View className="flex-row items-center gap-1.5">
+                    <View className="w-[15px] h-[15px] rounded-full bg-[#22c55e] items-center justify-center">
+                      <Text className="text-[8px] font-bold text-white leading-none">
+                        ✓
+                      </Text>
+                    </View>
+                    <Text className="text-[12px] font-semibold text-[#16a34a]">
+                      일치
+                    </Text>
+                  </View>
+                ) : null}
+              </View>
               <TextInput
-                className={`bg-input-bg border-[1.5px] rounded-xl px-4 py-[14px] text-[15px] text-foreground ${
-                  passwordConfirm && password !== passwordConfirm
-                    ? "border-red-300"
-                    : "border-border"
-                }`}
-                placeholder="비밀번호를 다시 입력하세요"
+                className={`bg-input-bg border-[1.5px] rounded-xl px-4 py-[14px] text-[15px] text-foreground ${passwordConfirm && password !== passwordConfirm
+                  ? "border-red-300"
+                  : "border-border"
+                  }`}
                 placeholderTextColor="#BBA9B0"
                 value={passwordConfirm}
                 onChangeText={setPasswordConfirm}
                 secureTextEntry
               />
-              {passwordConfirm.length > 0 && password !== passwordConfirm && (
+              {passwordConfirm.length > 0 && password !== passwordConfirm ? (
                 <Text className="text-[12px] text-red-400 ml-1">
                   비밀번호가 일치하지 않습니다
                 </Text>
-              )}
+              ) : null}
             </View>
 
             {/* 이용약관 */}
@@ -190,11 +223,10 @@ export default function SignupScreen() {
                 className="flex-row items-center gap-3"
               >
                 <View
-                  className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${
-                    agreedAll
-                      ? "bg-primary border-primary"
-                      : "bg-white border-border"
-                  }`}
+                  className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${agreedAll
+                    ? "bg-primary border-primary"
+                    : "bg-white border-border"
+                    }`}
                 >
                   {agreedAll && (
                     <Text className="text-white text-[11px] font-bold">✓</Text>
@@ -216,11 +248,10 @@ export default function SignupScreen() {
               >
                 <View className="flex-row items-center gap-3">
                   <View
-                    className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${
-                      agreedTerms
-                        ? "bg-primary border-primary"
-                        : "bg-white border-border"
-                    }`}
+                    className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${agreedTerms
+                      ? "bg-primary border-primary"
+                      : "bg-white border-border"
+                      }`}
                   >
                     {agreedTerms && (
                       <Text className="text-white text-[11px] font-bold">
@@ -244,11 +275,10 @@ export default function SignupScreen() {
               >
                 <View className="flex-row items-center gap-3">
                   <View
-                    className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${
-                      agreedPrivacy
-                        ? "bg-primary border-primary"
-                        : "bg-white border-border"
-                    }`}
+                    className={`w-5 h-5 rounded-md border-[1.5px] items-center justify-center ${agreedPrivacy
+                      ? "bg-primary border-primary"
+                      : "bg-white border-border"
+                      }`}
                   >
                     {agreedPrivacy && (
                       <Text className="text-white text-[11px] font-bold">

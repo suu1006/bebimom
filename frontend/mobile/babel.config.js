@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -9,11 +11,12 @@ module.exports = function (api) {
       [
         "module-resolver",
         {
-          root: ["."],
+          root: [path.resolve(__dirname)],
           alias: {
-            "@": ".",
-            "@shared": "../shared",
+            "@": path.resolve(__dirname, "src"),
+            "@shared": path.resolve(__dirname, "../shared"),
           },
+          extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
         },
       ],
       "react-native-reanimated/plugin",

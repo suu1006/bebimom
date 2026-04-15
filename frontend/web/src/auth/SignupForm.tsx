@@ -22,6 +22,14 @@ export function SignupForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+    if (
+      password.length < 8 ||
+      !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)
+    ) {
+      setError(t("passwordRuleError"));
+      return;
+    }
+
     setIsLoading(true);
 
     try {

@@ -1,10 +1,11 @@
 import "../global.css";
+
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { useAuthStore } from "../store/authStore";
+import { useAuthStore } from "@/store/authStore";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,10 +18,13 @@ const queryClient = new QueryClient({
 
 function AppLayout() {
   const hydrate = useAuthStore((s) => s.hydrate);
+  const isLoading = useAuthStore((s) => s.isLoading);
 
   useEffect(() => {
     hydrate();
   }, []);
+
+  if (isLoading) return null;
 
   return (
     <>

@@ -4,7 +4,7 @@ import {
   deleteStoredToken,
   getStoredToken,
   setStoredToken,
-} from "../lib/tokenStorage";
+} from "@/lib/tokenStorage";
 
 const TOKEN_KEY = process.env.EXPO_PUBLIC_ACCESS_TOKEN_KEY?.trim() || "accessToken";
 

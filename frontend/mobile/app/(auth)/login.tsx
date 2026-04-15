@@ -14,8 +14,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link, router } from "expo-router";
 import { useMutation } from "@tanstack/react-query";
-import { loginApi } from "../../lib/api";
-import { useAuthStore } from "../../store/authStore";
+import { loginApi } from "@/lib/api";
+import { useAuthStore } from "@/store/authStore";
 import { BOTTOM_PATH } from "@shared/constant/bottomPath";
 import logoImage from "@shared/assets/image/logo.png";
 

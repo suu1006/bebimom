@@ -15,7 +15,7 @@ import morgan from "morgan";
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: ["http://localhost:3000", "http://localhost:8081", "http://localhost:19006"], credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
